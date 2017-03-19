@@ -15,6 +15,7 @@ I have created two api's
 1:) GET : parking/getall?username={{your userName}}&authToken={{your authToken}}
 
 2:) POST : parking/addParking?username={{your userName}}&authToken={{your authToken}}
+
 Payload Body:
  {
     "name":	String,
