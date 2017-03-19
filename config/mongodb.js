@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 function _init(){
     try{
-        return mongoose.createConnection('mongodb://localhost/parkdb');
+        let host = process.env.MONGO_HOST || "localhost";
+        return mongoose.createConnection("mongodb://" + host + "/parkdb");
     }catch(err){
         console.log("No internet connection :(");
     }

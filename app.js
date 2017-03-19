@@ -30,9 +30,9 @@ function validateAuthToken (username, authToken, callbacks) {
     });
 };
 
-
+let host = process.env.MONGO_HOST || "localhost";
 // mongoose
-mongoose.connect('mongodb://localhost/parkdb');
+mongoose.connect("mongodb://" + host + "/parkdb");
 
 
 app.set('views', __dirname + '/views');
