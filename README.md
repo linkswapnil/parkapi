@@ -15,8 +15,8 @@ In order to access api you will have to first hit the register route(/register) 
 
 2:) POST : parking/addParking?username={{your userName}}&authToken={{your authToken}}
 
-Payload Body:
- >```
+Payload body
+ ```
  {
     "name":	String,
     "carParkingCount": Number,
@@ -31,3 +31,4 @@ Payload Body:
     "authToken":      String,
     "username":       String
 }
+```
