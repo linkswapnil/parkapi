@@ -13,7 +13,7 @@ In order to access api you will have to first hit the register route(/register) 
 
 1:) GET : parking/getall?username={{your userName}}&authToken={{your authToken}}
 
-2:) POST : parking/addParking?username={{your userName}}&authToken={{your authToken}}
+2:) POST : parking/addParking
 
 Payload body
  ```
