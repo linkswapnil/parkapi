@@ -26,8 +26,7 @@ function sendSms(text, mobileNumber) {
                 resolve(str);
             });
         };
-        resolve();
-        //https.request(options, callback).end();
+        https.request(options, callback).end();
     });
 }
 
