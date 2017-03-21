@@ -10,6 +10,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 
 var parkingAPI = require('./routes/api/parkingapi');
+var userAPI = require('./routes/api/userapi');
 
 var app = express();
 
@@ -84,7 +85,24 @@ app.get('*', function(req, res, next) {
         }
     });
 });
+app.post('*', function(req, res, next) {
+    let username = req.body.username || req.query.username;
+    let authToken = req.body.authToken || req.query.authToken;
+    validateAuthToken(username, authToken ,{
+        success: function(result){
+            if(result){
+                next();
+            }
+        },
+        error: function(err){
+            res.status(403).send({
+                message : 'unAuthorized'
+            });
+        }
+    });
+});
 app.use('/parking', parkingAPI);
+app.use('/user', userAPI);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
