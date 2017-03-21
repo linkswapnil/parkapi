@@ -11,9 +11,9 @@ In order to access api you will have to first hit the register route(/register) 
 
 ### Api's available
 
-1:) GET : parking/getall?username={{your userName}}&authToken={{your authToken}}
+1.GET : parking/getall?username={{your userName}}&authToken={{your authToken}}
 
-2:) POST : parking/addParking
+2.POST : parking/addParking
 
 Payload body
  ```
@@ -30,5 +30,32 @@ Payload body
     "country":        String
     "authToken":      String,
     "username":       String
+}
+```
+
+3.POST: user/generateOTP
+
+Payload body
+ ```
+ {
+    "name":	*String(name of the user),
+    "mobileNumber": *String(users mobile number),
+    "bikeParkingCount":Number,
+    "emailId":         String(users email id),
+    "authToken":      *String (Api access token),
+    "username":       *String(Api access username)
+}
+```
+
+4.POST: user/verifyOTP
+
+Payload body
+ ```
+ {
+    "name":	*String(name of the user),
+    "mobileNumber": *String(users mobile number),
+    "verificationCode":*String,
+    "authToken":      *String (Api access token),
+    "username":       *String(Api access username)
 }
 ```
