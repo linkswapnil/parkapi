@@ -1,7 +1,7 @@
 /**
  * Created by sno1086 on 3/21/17.
  */
-var https = require('https');
+var http = require('http');
 
 function sendSms(text, mobileNumber) {
     var sender='txtlcl';
@@ -26,7 +26,7 @@ function sendSms(text, mobileNumber) {
                 resolve(str);
             });
         };
-        https.request(options, callback).end();
+        http.request(options, callback).end();
     });
 }
 
