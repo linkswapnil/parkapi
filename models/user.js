@@ -44,19 +44,32 @@ function createUser(User, callbacks){
     });
 }
 
+// Tank.update({ _id: id }, { $set: { size: 'large' }}, callback);
+
 //READ all Users
 function verify(userInfo, callbacks){
-    return UserModel.findOne({ name: userInfo.name, verificationCode: userInfo.verificationCode, mobileNumber : userInfo.mobileNumber})
-        .exec('find', function (err, user) {
-            if (!err) {
-                user[0].isVerified = true;
-                user[0].save();
-                callbacks.success();
-            } else {
-                console.log(err);
-                callbacks.error(err);
+    return UserModel.findOne({ name: userInfo.name, verificationCode: userInfo.verificationCode, mobileNumber : userInfo.mobileNumber},
+        function (err, user) {
+        if(!user){
+            callbacks.error('No record found');
+        } else if(err){
+            console.log(err);
+            callbacks.error(err)
+        }else{
+            if(user.isVerified){
+                callbacks.error('User already Verified');
+            }else{
+                user.isVerified = true;
+                user.save(function (err, user) {
+                    if(err){
+                        callbacks.error('Error updating user');
+                    }else{
+                        callbacks.success('User verified');
+                    }
+                })
             }
-        });
+        }
+    });
 }
 
 //DELETE Product

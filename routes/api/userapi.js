@@ -51,7 +51,7 @@ router.post('/verifyOTP', function(req, res) {
                     res.status(200).send("User verified");
                 },
                 error: function(err){
-                    res.status(500).send("Verification failed");
+                    res.status(500).send(err);
                 }
             });
 });
