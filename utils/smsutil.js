@@ -11,6 +11,8 @@ function sendSms(text, mobileNumber) {
         path: '/api/sendhttp.php?'+data
     };
 
+    console.log(JSON.stringify(options));
+
     return new Promise((resolve, reject) => {
         var callback = function(response) {
             var str = '';
