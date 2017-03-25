@@ -40,7 +40,6 @@ Payload body
  {
     "name":	*String(name of the user),
     "mobileNumber": *String(users mobile number),
-    "bikeParkingCount":Number,
     "emailId":         String(users email id),
     "authToken":      *String (Api access token),
     "username":       *String(Api access username)
